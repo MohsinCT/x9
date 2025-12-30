@@ -1,16 +1,14 @@
-import 'dart:ui';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-
-
 import 'package:provider/provider.dart';
+
 import 'package:x9_concierge/constants/mediaquery.dart';
 import 'package:x9_concierge/controller/hover_provider.dart';
 import 'package:x9_concierge/controller/membership_provider.dart';
 import 'package:x9_concierge/screens/card_details.dart';
+import 'package:x9_concierge/screens/widgets/background.dart';
 import 'package:x9_concierge/screens/widgets/custom_navbar.dart';
 import 'package:x9_concierge/screens/widgets/x9membershipcard.dart';
 
@@ -43,15 +41,15 @@ class AnotherHm extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
         'core': [
-      '- Daily requests, bookings & reservations (basic)',
-      '- Flight & hotel bookings (standard options only)',
-      '- Travel ticketing & basic itinerary support',
-      '- Calendar planning & reminders for important dates',
-      '- Renewal reminders (subscriptions, bills, insurance, EMI, etc.)',
-      '- Pickup/drop/courier arrangements (standard-only coordination)',
-      '- Assigned concierge support via standard response queue',
-      '- Available Mon–Fri, 9:00 AM to 6:00 PM',
-    ],
+          '- Daily requests, bookings & reservations (basic)',
+          '- Flight & hotel bookings (standard options only)',
+          '- Travel ticketing & basic itinerary support',
+          '- Calendar planning & reminders for important dates',
+          '- Renewal reminders (subscriptions, bills, insurance, EMI, etc.)',
+          '- Pickup/drop/courier arrangements (standard-only coordination)',
+          '- Assigned concierge support via standard response queue',
+          '- Available Mon–Fri, 9:00 AM to 6:00 PM',
+        ],
       },
       {
         'title': 'PLATINUM',
@@ -63,12 +61,11 @@ class AnotherHm extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
         'core': [
-      '- Concierge Services: Daily requests, bookings, reservations.',
-      '- Personlized Newsletters: Curated updates tailored to member interests',
-      '- Visa & Immigration Assistance: Documentation and process support',
-      '- Personl Finance Assistance:Help with financial planning and guidance',
-      
-    ],
+          '- Concierge Services: Daily requests, bookings, reservations.',
+          '- Personlized Newsletters: Curated updates tailored to member interests',
+          '- Visa & Immigration Assistance: Documentation and process support',
+          '- Personl Finance Assistance:Help with financial planning and guidance',
+        ],
       },
 
       {
@@ -81,15 +78,15 @@ class AnotherHm extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
         'core': [
-      '- Family Care: Special support for NRIs (managing family needs locally).',
-      '- Medical & Health Advisor: Guidance and access to trusted specialists.',
-      '- Home & Vehicle Management: Event clean-up, maintenance coordination.',
-      '- Babysitting & Elder Care: Verified caregivers as needed.',
-      '- Pet & Veterinary Care: Scheduling appointments, arranging services',
-      '- Psychologist / Therapist Access: Mental health and wellness support',
-      '- Postpartum Care: After-delivery mental health & assistance',
-      '- Personal Finance Assistance: Ongoing financial advisory support',
-    ],
+          '- Family Care: Special support for NRIs (managing family needs locally).',
+          '- Medical & Health Advisor: Guidance and access to trusted specialists.',
+          '- Home & Vehicle Management: Event clean-up, maintenance coordination.',
+          '- Babysitting & Elder Care: Verified caregivers as needed.',
+          '- Pet & Veterinary Care: Scheduling appointments, arranging services',
+          '- Psychologist / Therapist Access: Mental health and wellness support',
+          '- Postpartum Care: After-delivery mental health & assistance',
+          '- Personal Finance Assistance: Ongoing financial advisory support',
+        ],
       },
       {
         'title': 'BLACK',
@@ -101,178 +98,164 @@ class AnotherHm extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
         'core': [
-      '- Luxury Travel Planning: Safaris, private tours, exotic getaways',
-      '- Unique Experiences: Skydiving, scuba diving, curated adventures',
-      '- Personal Tutors: Online or in-person educational support',
-      '- Salon & Spa Appointments: Premium grooming & wellness services',
-      '- Private Event Planning: Weddings, parties, and exclusive gatherings',
-      '- Philanthropy Support: Help in finding & contributing to charities',
-      '- High-Level Access: Opportunities to connect with govt. stakeholders, entrepreneurs investors',
-      '- Buy & Sell Assistance: Facilitating high-value transactions',
-      '- Priority Concierge: Fastest response and white-glove service'
-    ],
+          '- Luxury Travel Planning: Safaris, private tours, exotic getaways',
+          '- Unique Experiences: Skydiving, scuba diving, curated adventures',
+          '- Personal Tutors: Online or in-person educational support',
+          '- Salon & Spa Appointments: Premium grooming & wellness services',
+          '- Private Event Planning: Weddings, parties, and exclusive gatherings',
+          '- Philanthropy Support: Help in finding & contributing to charities',
+          '- High-Level Access: Opportunities to connect with govt. stakeholders, entrepreneurs investors',
+          '- Buy & Sell Assistance: Facilitating high-value transactions',
+          '- Priority Concierge: Fastest response and white-glove service',
+        ],
       },
     ];
     return Scaffold(
       body: Stack(
         children: [
           // bg animated image
-          Container(
-            width: md.screenWidth,
-            height: md.screenHeight,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color(0xFF000000), // Black
-                  Color(0xFF2E2E2E), // Gunmetal
-                  Color(0xFF757575), // Brushed steel
-                  Color(0xFFD9D9D9), // Silver
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-            ),
-          ),
+          BackgroundLayer(),
 
-          Positioned.fill(
-            child: Container(
-              decoration: BoxDecoration(
-                gradient: RadialGradient(
-                  center: Alignment.topCenter,
-                  radius: 1.2,
-                  colors: [Colors.white.withOpacity(0.06), Colors.transparent],
-                ),
-              ),
-            ),
-          ),
-          Positioned.fill(
-            child:
-                AnimatedContainer(
-                      duration: const Duration(seconds: 10),
-                      curve: Curves.easeInOut,
-                      decoration: const BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [
-                            Color(0xFF000000), // Black
-                            Color(0xFF2E2E2E), // Gunmetal
-                            Color(0xFF757575), // Brushed silver
-                            Color(0xFFD9D9D9), // Light silver
-                          ],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
-                      ),
-                    )
-                    .animate(
-                      onPlay: (controller) => controller.repeat(reverse: true),
-                    )
-                    .shimmer(delay: 0.5.seconds, duration: 8.seconds),
-          ),
-
-          CustomNavBar(),
           // navbar
-
-          // Cards
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CarouselSlider.builder(
-                itemCount: cards.length,
-                itemBuilder: (context, index, realIndex) {
-                  final card = cards[index];
-                  return X9MembershipCard(
-                    cardImage: card['cardImage'] as String,
-                    index: index,
-                    title: card['title'] as String,
-                    subtitle: card['subtitle'] as String,
-                    gradient: card['gradient'] as dynamic,
-                  );
-                },
-                options: CarouselOptions(
-                  height: md.screenHeight * 0.37,
-                  viewportFraction: 0.36, // keeps containers close together
-                  enableInfiniteScroll: true,
-                  enlargeCenterPage: true,
-                  enlargeFactor: 0.57,
-                  autoPlay: false,
-                  onPageChanged: (index, reason) {
-                    x9Proivder.setIndex(index);
-                  },
-                ),
-              ),
-              SizedBox(height: 50),
-
-              MouseRegion(
-                onEnter: (_) => hoverProvider.setHoveringCommunity(true),
-                onExit: (_) => hoverProvider.setHoveringCommunity(false),
-                child: GestureDetector(
-                  onTapDown: (_) {
-                    HapticFeedback.lightImpact(); // subtle tap — like Apple button feel
-                  },
-                  onTap: () {
-                    final currentCard = cards[x9Proivder.currentPage];
-
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (ctx) => CardDetails(
-                          cardImage: currentCard['cardImage'] as String,
-                          core: currentCard['core'] as dynamic,
+          Positioned.fill(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  CustomNavBar(),
+                  Positioned.fill(
+                    child: ClipRRect(
+                      child: ColorFiltered(
+                        colorFilter: ColorFilter.mode(
+                          Colors.black.withOpacity(0.25),
+                          BlendMode.darken,
+                        ),
+                        child: Image.asset(
+                          "assets/Brand_Guide_X9_comp.pdf.jpg", // your asset image
+                          fit: BoxFit.cover,
                         ),
                       ),
-                    );
-                    // optional: another haptic or your action
-                    HapticFeedback.mediumImpact(); // slightly stronger
-                    // your button logic here
-                  },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 28,
-                      vertical: 14,
                     ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      gradient: hoverProvider.isHoveringCommunity
-                          ? const LinearGradient(
-                              colors: [Color(0xFFFFD700), Color(0xFFFFF59D)],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                            )
-                          : null,
-                      border: Border.all(
-                        color: Colors.white.withOpacity(0.3),
-                        width: 1.5,
-                      ),
-                      boxShadow: hoverProvider.isHoveringCommunity
-                          ? [
-                              BoxShadow(
-                                color: Colors.yellowAccent.withOpacity(0.5),
-                                blurRadius: 25,
-                                spreadRadius: 2,
-                              ),
-                            ]
-                          : [],
-                    ),
-                    child: Consumer<MembershipProvider>(
-                      builder: (context, x9Pro, child) {
-                        return Text(
-                          cards[x9Pro.currentPage]['subtitle'] as String,
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 22,
-                            fontWeight: FontWeight.w600,
-                            letterSpacing: 3,
-                            color: hoverProvider.isHoveringCommunity
-                                ? Colors.black
-                                : Colors.white.withOpacity(0.85),
-                          ),
-                        );
+                  ),
+
+                  // section 1
+                  const SizedBox(height: 300),
+
+                  // section 2
+                  CarouselSlider.builder(
+                    itemCount: cards.length,
+                    itemBuilder: (context, index, realIndex) {
+                      final card = cards[index];
+                      return X9MembershipCard(
+                        cardImage: card['cardImage'] as String,
+                        index: index,
+                        title: card['title'] as String,
+                        subtitle: card['subtitle'] as String,
+                        gradient: card['gradient'] as dynamic,
+                      );
+                    },
+                    options: CarouselOptions(
+                      height: md.screenHeight * 0.37,
+                      viewportFraction: 0.36, // keeps containers close together
+                      enableInfiniteScroll: true,
+                      enlargeCenterPage: true,
+                      enlargeFactor: 0.57,
+                      autoPlay: false,
+                      onPageChanged: (index, reason) {
+                        x9Proivder.setIndex(index);
                       },
                     ),
-                  ).animate().fadeIn(delay: 1.2.seconds, duration: 1.seconds),
-                ),
+                  ),
+
+                  MouseRegion(
+                    onEnter: (_) => hoverProvider.setHoveringCommunity(true),
+                    onExit: (_) => hoverProvider.setHoveringCommunity(false),
+                    child: GestureDetector(
+                      onTapDown: (_) {
+                        HapticFeedback.lightImpact(); // subtle tap — like Apple button feel
+                      },
+                      onTap: () {
+                        final currentCard = cards[x9Proivder.currentPage];
+
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (ctx) => CardDetails(
+                              title: currentCard['title']
+                                  as String,
+                              cardImage: currentCard['cardImage'] as String,
+                              core: currentCard['core'] as dynamic,
+                            ),
+                          ),
+                        );
+                        // optional: another haptic or your action
+                        HapticFeedback.mediumImpact(); // slightly stronger
+                        // your button logic here
+                      },
+                      child:
+                          AnimatedContainer(
+                            duration: const Duration(milliseconds: 300),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 28,
+                              vertical: 14,
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              gradient: hoverProvider.isHoveringCommunity
+                                  ? const LinearGradient(
+                                      colors: [
+                                        Color(0xFFFFD700),
+                                        Color(0xFFFFF59D),
+                                      ],
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomRight,
+                                    )
+                                  : null,
+                              border: Border.all(
+                                color: Colors.white.withOpacity(0.3),
+                                width: 1.5,
+                              ),
+                              boxShadow: hoverProvider.isHoveringCommunity
+                                  ? [
+                                      BoxShadow(
+                                        color: Colors.yellowAccent.withOpacity(
+                                          0.5,
+                                        ),
+                                        blurRadius: 25,
+                                        spreadRadius: 2,
+                                      ),
+                                    ]
+                                  : [],
+                            ),
+                            child: Consumer<MembershipProvider>(
+                              builder: (context, x9Pro, child) {
+                                return Text(
+                                  cards[x9Pro.currentPage]['subtitle']
+                                      as String,
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w600,
+                                    letterSpacing: 3,
+                                    color: hoverProvider.isHoveringCommunity
+                                        ? Colors.black
+                                        : Colors.white.withOpacity(0.85),
+                                  ),
+                                );
+                              },
+                            ),
+                          ).animate().fadeIn(
+                            delay: 1.2.seconds,
+                            duration: 1.seconds,
+                          ),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
+          ),
+
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [SizedBox(height: 50)],
           ),
         ],
       ),

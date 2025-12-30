@@ -13,7 +13,7 @@ class X9MembershipCardMOB extends StatelessWidget {
   final Gradient gradient;
 
   const X9MembershipCardMOB({
-    super.key,
+    super.key, 
     required this.index,
     required this.title,
     required this.subtitle,
@@ -27,43 +27,49 @@ class X9MembershipCardMOB extends StatelessWidget {
     final isHovered = provider.isHovered(index);
     final md = MediaQueryHelper(context);
 
-    return  Container(
+    return  SizedBox(
          width: md.screenWidth * 0.8, 
-          height: md.screenHeight * 0.4,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.white.withOpacity(0.3), width: 1.2),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.6),
-              blurRadius: 25,
-              offset: const Offset(0, 8),
-            ),
-            if (isHovered)
-              BoxShadow(
-                color: const Color.fromARGB(255, 139, 44, 44).withOpacity(0.15),
-                blurRadius: 40,
-                spreadRadius: 8,
-              ),
-          ],
-        ),
+          height: md.screenHeight * 0.1,
+        // decoration: BoxDecoration(
+        //   borderRadius: BorderRadius.circular(20),
+        //   border: Border.all(color: Colors.white.withOpacity(0.3), width: 1.2),
+        //   boxShadow: [
+        //     BoxShadow(
+        //       color: Colors.black.withOpacity(0.6),
+        //       blurRadius: 25,
+        //       offset: const Offset(0, 8),
+        //     ),
+        //     if (isHovered)
+        //       BoxShadow(      
+        //         color: const Color.fromARGB(255, 139, 44, 44).withOpacity(0.15),
+        //         blurRadius: 40,
+        //         spreadRadius: 8,
+        //       ),
+        //   ],
+        // ),
         child: Stack(
           children: [
             _buildOverlay(),
-            _buildCardImage(),
+            _buildCardImage(context),
 
             if (isHovered) _buildHoverOverlay(),
-            _buildLogo(context),
+           
           ],
         ),
       );
     
   }
 
-  Widget _buildCardImage() {
+  Widget _buildCardImage(BuildContext context
+  ) {
+    final md = MediaQueryHelper(context);
     return ClipRRect(
-      borderRadius: BorderRadiusGeometry.circular(20),
-      child: Image.asset(cardImage, width: 700, fit: BoxFit.cover),
+      borderRadius: BorderRadiusGeometry.circular(16),
+      child: Image.asset(
+        cardImage, 
+        width: md.screenHeight, 
+        height: md.screenHeight * 0.2,
+        fit: BoxFit.cover),
     );
   }
 

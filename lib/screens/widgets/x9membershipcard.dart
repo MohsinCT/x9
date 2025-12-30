@@ -54,8 +54,8 @@ class X9MembershipCard extends StatelessWidget {
             _buildOverlay(),
             _buildCardImage(),
 
-            if (isHovered) _buildHoverOverlay(),
-            _buildLogo(),
+            
+            
           ],
         ),
       ),
@@ -87,34 +87,6 @@ class X9MembershipCard extends StatelessWidget {
     ),
   );
 
-  // Widget _buildTextContent() => Center(
-  //       child: Column(
-  //         mainAxisSize: MainAxisSize.min,
-  //         children: [
-  //           Text(
-  //             title,
-  //             style: const TextStyle(
-  //               fontFamily: 'Poppins',
-  //               fontSize: 30,
-  //               fontWeight: FontWeight.bold,
-  //               color: Colors.white,
-  //               letterSpacing: 2,
-  //             ),
-  //           ),
-  //           const SizedBox(height: 6),
-  //           Text(
-  //             subtitle,
-  //             style: TextStyle(
-  //               fontFamily: 'Poppins',
-  //               fontSize: 14,
-  //               fontWeight: FontWeight.w400,
-  //               color: Colors.white.withOpacity(0.85),
-  //               letterSpacing: 1,
-  //             ),
-  //           ),
-  //         ],
-  //       ),
-  //     );
 
   Widget _buildHoverOverlay() => Center(
     child: Container(
@@ -136,13 +108,7 @@ class X9MembershipCard extends StatelessWidget {
     ).animate().fadeIn(duration: 400.ms),
   );
 
-  Widget _buildLogo() => Positioned(
-    left: 20,
-    bottom: 15,
-    child: SizedBox(
-      width: 44,
-      height: 22,
-      child: Image.asset('assets/Logo_Logomark_black.png'),
-    ),
-  );
+ 
 }
+
+

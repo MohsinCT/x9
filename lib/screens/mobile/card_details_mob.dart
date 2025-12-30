@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:x9_concierge/constants/mediaquery.dart';
+import 'package:x9_concierge/screens/widgets/background.dart';
 
 class CardDetailsMob extends StatelessWidget {
   final String cardImage;
@@ -21,19 +22,14 @@ class CardDetailsMob extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            width: md.screenWidth,
-            height: md.screenHeight,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color(0xFF000000),
-                  Color(0xFF2E2E2E),
-                  Color(0xFF757575),
-                  Color(0xFFD9D9D9),
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+          BackgroundLayer(),
+          
+          Positioned.fill(
+            child: Opacity(
+              opacity: 0.15,
+              child: Image.asset(
+                "assets/x9_bg.jpg", // your asset image
+                fit: BoxFit.cover,
               ),
             ),
           ),

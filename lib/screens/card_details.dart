@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:x9_concierge/constants/mediaquery.dart';
+import 'package:x9_concierge/screens/widgets/background.dart';
 
 class CardDetails extends StatelessWidget {
+  final String title;
   final String cardImage;
   final List<String> core;
 
-  const CardDetails({super.key, required this.cardImage, required this.core});
+  const CardDetails({super.key, required this.cardImage, required this.core, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -15,47 +17,35 @@ class CardDetails extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            width: md.screenWidth,
-            height: md.screenHeight,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color(0xFF000000),
-                  Color(0xFF2E2E2E),
-                  Color(0xFF757575),
-                  Color(0xFFD9D9D9),
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+          BackgroundLayer(),
+
+          Positioned.fill(
+            child: Opacity(
+              opacity: 0.15,
+              child: Image.asset(
+                "assets/x9_bg.jpg", // your asset image
+                fit: BoxFit.cover,
               ),
             ),
           ),
+          
+          
+          Row(
+            
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.w700,
+                ),
+              ).animate().fadeIn(duration: 500.ms).slideY(),
 
-          // Shimmer overlay
-          Positioned.fill(
-            child:
-                AnimatedContainer(
-                      duration: const Duration(seconds: 10),
-                      curve: Curves.easeInOut,
-                      decoration: const BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [
-                            Color(0xFF000000),
-                            Color(0xFF2E2E2E),
-                            Color(0xFF757575),
-                            Color(0xFFD9D9D9),
-                          ],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
-                      ),
-                    )
-                    .animate(
-                      onPlay: (controller) => controller.repeat(reverse: true),
-                    )
-                    .shimmer(delay: 0.5.seconds, duration: 8.seconds),
+            ],
           ),
+
+          
 
           Padding(
             padding: EdgeInsets.symmetric(
@@ -65,6 +55,8 @@ class CardDetails extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+
+                
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
